@@ -1,0 +1,21 @@
+server:
+    port: 8081
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.199:3307/test?characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  mvc:
+    view:
+      suffix: .html
+      prefix: classpath:/templates/
+
+
+mybatis:
+  typeAliasesPackage: com.ocean.entity
+  mapperLocations: classpath:mapping/*.xml
+
