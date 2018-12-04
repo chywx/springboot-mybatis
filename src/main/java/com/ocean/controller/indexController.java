@@ -22,4 +22,9 @@ public class indexController {
         return "handsontable/demo1";
     }
 
+    @RequestMapping("/angular/test1.do")
+    public String test1(){
+        return "angular/test1";
+    }
+
 }
