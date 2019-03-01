@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * 这个controller没什么用处，就当是测试了
+ */
 @Controller
 public class indexController {
 
@@ -16,6 +19,7 @@ public class indexController {
     public String index(){
         return "index";
     }
+
     @RequestMapping("/handsontable/demo1.do")
     public String demo1(){
         System.out.println("demo1");
