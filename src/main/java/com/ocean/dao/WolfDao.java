@@ -16,13 +16,13 @@ import java.util.Map;
 @Mapper
 public interface WolfDao{
 
-    @Select("select id,wolf_name wolfName ,age from test.wolf")
+    @Select("select id,wolf_name wolfName ,age from github.wolf")
     List<Wolf> queryAll();
 
-    @Select({"call test.ges_user_count(#{sexid,mode=IN,jdbcType=INTEGER},#{usercount,mode=OUT,jdbcType=INTEGER})"})
+    @Select({"call github.ges_user_count(#{sexid,mode=IN,jdbcType=INTEGER},#{usercount,mode=OUT,jdbcType=INTEGER})"})
     @Options(statementType = StatementType.CALLABLE)
     HashMap testProcedure(Map<String, Integer> map);
 
-    @Select("select id,wolf_name wolfName ,age from test.wolf where wolf_name = #{wolfName}")
+    @Select("select id,wolf_name wolfName ,age from github.wolf where wolf_name = #{wolfName}")
     Wolf queryByName(@Param("wolfName") String wolfName);
 }

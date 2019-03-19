@@ -6,7 +6,8 @@
 
 [csdn博客参考](https://blog.csdn.net/jy02268879/article/details/83346701)
 
-
+## 使用provider注解
+> user类
 
 ## 测试调用存储过程
 
