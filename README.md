@@ -15,3 +15,6 @@
 
 > that ok
 
+## 测试邮件发送
+
+> spring-boot-starter-mail
