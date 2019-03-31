@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver # com.mysql.jdbc.Driver     This is deprecated
-    url: null
+    url: jdbc:mysql://39.105.97.50:3306/github?characterEncoding=UTF-8&useSSL=false
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
@@ -13,6 +13,11 @@ spring:
     view:
       suffix: .html
       prefix: classpath:/templates/
+  mail:
+    host: smtp.qq.com
+    username: 1559843332@qq.com # 用户名
+    password: 授权码 # 不是密码，是授权码
+    properties: {mail.smtp.auth=true,mail.smtp.starttls.enable=true,mail.smtp.starttls.required=true}
 
 
 mybatis:
@@ -23,3 +28,5 @@ mybatis:
 
 logging:
   config: classpath:logback.xml
+
+
