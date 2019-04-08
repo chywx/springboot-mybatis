@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver # com.mysql.jdbc.Driver     This is deprecated
-    url: #数据库连接地址
+    url: jdbc:mysql://127.0.0.1:3306/demo?characterEncoding=UTF-8&useSSL=false
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
