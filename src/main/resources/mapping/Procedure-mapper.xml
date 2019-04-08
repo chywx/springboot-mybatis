@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ocean.dao.ProcedureDao">
+
+
+
+	<select id="testProcedure" parameterType="java.util.Map" statementType="CALLABLE">
+		<![CDATA[
+			{call github.get_user_count(#{sexid,mode=IN,jdbcType=INTEGER},#{usercount,mode=OUT,jdbcType=INTEGER})}
+		]]>
+	</select>
+
+
+
+	<!--
+        查询得到男性或女性的数量, 如果传入的是0就女性否则是男性 孤傲苍狼
+     -->
+	<select id="testProcedure2" parameterMap="getUserCountMap" statementType="CALLABLE">
+        CALL github.get_user_count(?,?)
+    </select>
+	<parameterMap type="java.util.Map" id="getUserCountMap">
+		<parameter property="sexid" mode="IN" jdbcType="INTEGER"/>
+		<parameter property="usercount" mode="OUT" jdbcType="INTEGER"/>
+	</parameterMap>
+</mapper>
