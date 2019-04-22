@@ -12,4 +12,6 @@ public interface UserDao {
     @SelectProvider(type = SqlProvider.class,method = "selectUser")
     public User findUserById(Integer userId);
 
+    int insertUser(User user);
+
 }

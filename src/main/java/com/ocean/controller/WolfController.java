@@ -17,42 +17,8 @@ import java.util.*;
 @RequestMapping("/wolf")
 public class WolfController {
 
-    public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(2);
-        list.add(3);
-        list.add(1);
-        System.out.println(list);
-        for (Integer integer : list) {
-            if(integer == 3){
-                list.remove(integer);
-            }
-        }
-        System.out.println(list);
-    }
-
-//    public static void main(String[] args) {
-//        List<Integer> list = new ArrayList<>();
-//        list.add(2);
-//        list.add(3);
-//        list.add(1);
-//        list.add(4);
-//        System.out.println("最原始---->"+list);
-//        for(Integer integer : list){
-//            if (integer == 3){
-//                list.remove(integer);
-//            }
-//        }
-//        System.out.println("修改过之后的---->"+list);
-//    }
-
-
-
-
     @Autowired
     private WolfService service;
-
-
 
     @RequestMapping("/add1")
     @ResponseBody
@@ -66,7 +32,7 @@ public class WolfController {
     public Wolf test1(){
         Wolf wolf = new Wolf();
         wolf.setId(1);
-        wolf.setWolfName("chy");
+        wolf.setWolfName("dahai");
         wolf.setAge(22);
         return wolf;
     }

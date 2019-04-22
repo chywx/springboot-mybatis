@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ocean.dao.UserDao">
+
+	<insert id="insertUser" parameterType="com.ocean.entity.User" useGeneratedKeys="true" keyProperty="id">
+		insert into p_user(name,age,sex) values(#{name}, #{age}, #{sex})
+	</insert>
+
+</mapper>

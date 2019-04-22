@@ -13,4 +13,8 @@ public class UserService {
     public User findUserById(Integer userId){
         return userDao.findUserById(userId);
     }
+
+    public int insertUser(User user){
+        return userDao.insertUser(user);
+    }
 }
