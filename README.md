@@ -18,3 +18,7 @@
 ## 测试邮件发送
 
 > spring-boot-starter-mail
+
+## pageHelger
+
+> 添加pageHelger分页插件
