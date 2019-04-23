@@ -2,8 +2,6 @@
 
 > springboot 整合数据库demo，以便复用
 
-
-
 ## 自动生成测试类
 
 [csdn博客参考](https://blog.csdn.net/jy02268879/article/details/83346701)
@@ -21,4 +19,11 @@
 
 ## pageHelger
 
-> 添加pageHelger分页插件
+> 添加`pageHelger`分页插件
+
+## 注解aop
+[云栖社区借鉴](https://yq.aliyun.com/articles/576452)
+
+---
+
+> 上传添加github.sql

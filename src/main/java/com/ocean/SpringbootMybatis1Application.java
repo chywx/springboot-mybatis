@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import java.util.Properties;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.ocean.controller","com.ocean.service","com.email"})
+@ComponentScan(basePackages = {"com.ocean","com.email"})
 public class SpringbootMybatis1Application {
 
     public static void main(String[] args) {
