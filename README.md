@@ -1,6 +1,7 @@
 # springboot_mybatis1
 
 > springboot 整合数据库demo，以便复用
+[chywx API](https://api.github.com/repos/chywx/springboot_mybatis1/releases/latest)
 
 ## 自动生成测试类
 
@@ -27,3 +28,5 @@
 ---
 
 > 上传添加github.sql
+
+
