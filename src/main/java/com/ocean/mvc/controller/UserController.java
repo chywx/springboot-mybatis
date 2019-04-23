@@ -1,7 +1,7 @@
-package com.ocean.controller;
+package com.ocean.mvc.controller;
 
-import com.ocean.entity.User;
-import com.ocean.service.UserService;
+import com.ocean.mvc.entity.User;
+import com.ocean.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

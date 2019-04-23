@@ -1,10 +1,9 @@
-package com.ocean.service;
+package com.ocean.mvc.service;
 
-import com.ocean.dao.WolfDao;
-import com.ocean.entity.Wolf;
+import com.ocean.mvc.dao.WolfDao;
+import com.ocean.mvc.entity.Wolf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;

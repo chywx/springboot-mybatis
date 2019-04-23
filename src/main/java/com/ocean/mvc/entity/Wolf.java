@@ -1,4 +1,4 @@
-package com.ocean.entity;
+package com.ocean.mvc.entity;
 
 public class Wolf {
     private Integer id;

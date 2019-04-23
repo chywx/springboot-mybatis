@@ -1,6 +1,6 @@
-package com.ocean.service;
+package com.ocean.mvc.service;
 
-import com.ocean.dao.ProcedureDao;
+import com.ocean.mvc.dao.ProcedureDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

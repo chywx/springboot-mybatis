@@ -1,7 +1,7 @@
-package com.ocean.service;
+package com.ocean.mvc.service;
 
-import com.ocean.dao.UserDao;
-import com.ocean.entity.User;
+import com.ocean.mvc.dao.UserDao;
+import com.ocean.mvc.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
-package com.ocean.controller;
+package com.ocean.mvc.controller;
 
 import com.github.pagehelper.PageHelper;
-import com.ocean.entity.Wolf;
-import com.ocean.service.WolfService;
+import com.ocean.mvc.entity.Wolf;
+import com.ocean.mvc.service.WolfService;
 import com.ocean.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

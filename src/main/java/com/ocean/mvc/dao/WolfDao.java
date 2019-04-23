@@ -1,6 +1,6 @@
-package com.ocean.dao;
+package com.ocean.mvc.dao;
 
-import com.ocean.entity.Wolf;
+import com.ocean.mvc.entity.Wolf;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.StatementType;
 import org.springframework.stereotype.Repository;

@@ -1,8 +1,6 @@
 package com.ocean.controller;
 
-import com.ocean.entity.Wolf;
-import org.hamcrest.Matchers;
-import org.junit.Assert;
+import com.ocean.mvc.entity.Wolf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

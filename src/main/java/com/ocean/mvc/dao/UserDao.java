@@ -1,6 +1,6 @@
-package com.ocean.dao;
+package com.ocean.mvc.dao;
 
-import com.ocean.entity.User;
+import com.ocean.mvc.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Repository;

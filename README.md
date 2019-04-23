@@ -29,4 +29,28 @@
 
 > 上传添加github.sql
 
+--- 
+## 添加`swagger` API界面
+
+[http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)
+
+## 集成`redis`
+
+> 默认集成了下面这两个
+```
+@Autowired
+private StringRedisTemplate stringRedisTemplate;
+@Autowired
+private RedisTemplate redisTemplate;
+```
+> 添加分布式锁
+```$xslt
+// 对应redis的配置
+com.ocean.redis
+// 对应redis分布式锁工具类
+com.ocean.redis.lock
+```
+---
+
+
 

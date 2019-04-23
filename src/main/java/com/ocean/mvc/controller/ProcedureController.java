@@ -1,6 +1,6 @@
-package com.ocean.controller;
+package com.ocean.mvc.controller;
 
-import com.ocean.service.ProcedureService;
+import com.ocean.mvc.service.ProcedureService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class ProcedureController {
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * getUserCount是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "com.ocean.dao.ProcedureDao.testProcedure2";//映射sql的标识字符串
+        String statement = "ProcedureDao.testProcedure2";//映射sql的标识字符串
         Map<String, Integer> parameterMap = new HashMap<String, Integer>();
         parameterMap.put("sexid", 1);
         parameterMap.put("usercount", -1);

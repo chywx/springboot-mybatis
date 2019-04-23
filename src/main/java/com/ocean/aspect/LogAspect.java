@@ -21,7 +21,7 @@ public class LogAspect {
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
 
-    @Pointcut("execution(* com.ocean.controller..*.*(..))")
+    @Pointcut("execution(* com.ocean.mvc.controller..*.*(..))")
     public void log(){
     }
 

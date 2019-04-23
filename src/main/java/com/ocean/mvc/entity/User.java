@@ -1,4 +1,4 @@
-package com.ocean.entity;
+package com.ocean.mvc.entity;
 
 
 import lombok.Data;

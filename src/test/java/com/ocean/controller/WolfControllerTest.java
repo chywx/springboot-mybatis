@@ -1,6 +1,7 @@
 package com.ocean.controller;
 
-import com.ocean.entity.Wolf;
+import com.ocean.mvc.controller.WolfController;
+import com.ocean.mvc.entity.Wolf;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +20,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * 测试controller有三种方式

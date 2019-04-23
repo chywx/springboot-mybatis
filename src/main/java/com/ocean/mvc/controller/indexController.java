@@ -1,14 +1,12 @@
-package com.ocean.controller;
+package com.ocean.mvc.controller;
 
-import com.ocean.entity.Wolf;
-import com.ocean.service.WolfService;
+import com.ocean.mvc.entity.Wolf;
+import com.ocean.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 /**
  * 这个controller没什么用处，就当是测试了
