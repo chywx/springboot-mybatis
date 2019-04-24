@@ -1,7 +1,6 @@
 # springboot-mybatis
 
-> springboot 整合数据库demo，以便复用
-[chywx API](https://api.github.com/repos/chywx/springboot_mybatis1/releases/latest)
+> springboot 整合数据库demo，以便复用，使用了lombok，需要安装对应的插件
 
 ## 自动生成测试类
 
@@ -49,8 +48,23 @@ private RedisTemplate redisTemplate;
 com.ocean.redis
 // 对应redis分布式锁工具类
 com.ocean.redis.lock
+lock2 https://www.cnblogs.com/liuyang0/p/6744076.html
 ```
 ---
+
+## 整合MongoDB
+
+> com.ocean.mongo.MongodbController
+> 
+> 基本的增删改查
+
+[可以使用异步非阻塞框架webflux](https://github.com/chywx/xfq_study1)
+
+
+
+## 整合rabbitmq
+> 不是很了解，待研究
+> com.ocean.rabbitmq
 
 
 

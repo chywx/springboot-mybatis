@@ -1,5 +1,6 @@
 package com.ocean.redis.lock2;
 
+import com.ocean.utils.Constant;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -16,7 +17,7 @@ public class RedisLockService {
         config.setMaxWaitMillis(1000 * 100);
         // 在borrow一个jedis实例时，是否需要验证，若为true，则所有jedis实例均是可用的
         config.setTestOnBorrow(true);
-        pool = new JedisPool(config, "127.0.0.1", 6379, 3000,"123456");
+        pool = new JedisPool(config, Constant.HOST, 6379, 3000,"123456");
     }
 
     RedisDistributedLock lock = new RedisDistributedLock(pool);
@@ -26,6 +27,7 @@ public class RedisLockService {
     public void seckill() {
         // 返回锁的value值，供释放锁时候进行判断
         String indentifier = lock.lockWithTimeout("resource", 5000, 1000);
+        System.out.println(indentifier);
         System.out.println(Thread.currentThread().getName() + "获得了锁");
         System.out.println(--n);
         lock.releaseLock("resource", indentifier);

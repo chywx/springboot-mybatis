@@ -22,8 +22,7 @@ public class RedisDistributedLock {
      * @param timeout   锁的超时时间
      * @return 锁标识
      */
-    public String lockWithTimeout(String locaName,
-                                  long acquireTimeout, long timeout) {
+    public String lockWithTimeout(String locaName,long acquireTimeout, long timeout) {
         Jedis conn = null;
         String retIdentifier = null;
         try {

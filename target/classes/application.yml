@@ -1,31 +1,70 @@
 server:
-    port: 8081
+    port: 8080
 
 
 spring:
+#  数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver # com.mysql.jdbc.Driver     This is deprecated
-    url: jdbc:mysql://127.0.0.1:3306/demo?characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/github?characterEncoding=UTF-8&useSSL=false
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
+#  配置视图解析
   mvc:
     view:
       suffix: .html
       prefix: classpath:/templates/
+#  配置邮件发送
   mail:
     host: smtp.qq.com
     username: 1559843332@qq.com # 用户名
     password: 授权码 # 不是密码，是授权码
     properties: {mail.smtp.auth=true,mail.smtp.starttls.enable=true,mail.smtp.starttls.required=true}
 
+#  整合redis
+  redis:
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        #连接池最大连接数（使用负值表示没有限制）
+        max-active: 100
+        # 连接池中的最小空闲连接
+        max-idle: 10
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 100s
+    # 连接超时时间（毫秒）
+    timeout: 5s
+    #默认是索引为0的数据库
+    database: 0
 
+#  整合MongoDB
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/github
+
+#  整合rabbitmq
+  rabbitmq:
+    username: admin
+    password: 123456
+    host: 127.0.0.1
+    port: 5672
+    virtual-host: my_vhost
+    #手动ACK 不开启自动ACK模式,目的是防止报错后未正确处理消息丢失 默认 为 none
+    listener:
+      simple:
+        acknowledge-mode: manual
+
+#  整合mybatis，配置xml
 mybatis:
   typeAliasesPackage: com.ocean.entity
   mapperLocations: classpath:mapping/*.xml
 
 
-
+#  配置日志
 logging:
   config: classpath:logback.xml
 
