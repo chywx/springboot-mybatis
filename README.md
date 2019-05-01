@@ -70,5 +70,9 @@ lock2 https://www.cnblogs.com/liuyang0/p/6744076.html
 > 不是很了解，待研究
 > com.ocean.rabbitmq
 
+## 添加wiremock测试工具
 
+> jar包位置 src\test\java\wiremock\lib
+> 
+> java -jar wiremock-standalone-2.23.2.jar --port 8888
 
