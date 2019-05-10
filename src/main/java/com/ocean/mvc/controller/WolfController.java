@@ -31,8 +31,8 @@ public class WolfController {
     @RequestMapping("/test1.do")
     public Wolf test1(){
         Wolf wolf = new Wolf();
-        wolf.setId(1);
-        wolf.setWolfName("dahai");
+            wolf.setId(1);
+            wolf.setWolfName("dahai");
         wolf.setAge(22);
         return wolf;
     }

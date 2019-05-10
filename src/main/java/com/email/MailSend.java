@@ -25,4 +25,5 @@ public class MailSend {
         return "发送成功";
     }
 
+
 }

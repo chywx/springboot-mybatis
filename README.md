@@ -76,3 +76,40 @@ lock2 https://www.cnblogs.com/liuyang0/p/6744076.html
 > 
 > java -jar wiremock-standalone-2.23.2.jar --port 8888
 
+## 整合freemarker
+> 指定解析目录为templates
+```
+spring:
+  freemarker:
+    allow-request-override: false
+    cache: false
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html; charset=utf-8
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    suffix: .html
+    template-loader-path: classpath:/templates
+```
+
+## java读取pdf文字 java将pdf转换为html
+> 路径com.ocean.pdf
+```$xslt
+<!--pdf配置-->
+<dependency>
+    <groupId>net.sf.cssbox</groupId>
+    <artifactId>pdf2dom</artifactId>
+    <version>1.7</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.pdfbox</groupId>
+    <artifactId>pdfbox</artifactId>
+    <version>2.0.12</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.pdfbox</groupId>
+    <artifactId>pdfbox-tools</artifactId>
+    <version>2.0.12</version>
+</dependency>
+```
