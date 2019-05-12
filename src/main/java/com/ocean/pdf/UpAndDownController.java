@@ -15,6 +15,7 @@ import java.util.Map;
 @RequestMapping("ud")
 @Controller
 public class UpAndDownController {
+
     @RequestMapping("upload.do")
     @ResponseBody
     public Map<String,Object> upload(@RequestParam("file") MultipartFile file, HttpServletRequest request){

@@ -3,15 +3,49 @@ package com.ocean.pdf;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.fit.pdfdom.PDFDomTree;
+import org.junit.Test;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 
 public class PdfConvertUtil {
+
+    /*
+    读取pdf文字
+     */
+    @Test
+    public void readPdfTextTest() throws IOException {
+        byte[] bytes = getBytes("D:\\code\\pdf\\HashMap.pdf");
+        //加载PDF文档
+        PDDocument document = PDDocument.load(bytes);
+        readText(document);
+    }
+
+    /*
+    pdf转换html
+     */
+    @Test
+    public void pdfToHtmlTest()  {
+        String outputPath = "D:\\code\\pdf\\HashMap.html";
+        byte[] bytes = getBytes("D:\\code\\pdf\\HashMap.pdf");
+//        try() 写在()里面会自动关闭流
+        try (BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(outputPath)),"UTF-8"));){
+            //加载PDF文档
+            PDDocument document = PDDocument.load(bytes);
+            PDFDomTree pdfDomTree = new PDFDomTree();
+            pdfDomTree.writeText(document,out);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     public void pdftohtml(byte[] bytes, String htmlPath) throws Exception {
         //加载PDF文档
         PDDocument document = PDDocument.load(bytes);
         // 输出pdf文本
-        readText(document);
+//        readText(document);
         //将字节流转换成字符流
         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(htmlPath)),"UTF-8"));
         //实例化pdfdom树对象
@@ -31,7 +65,10 @@ public class PdfConvertUtil {
         System.out.println(text);
     }
 
-    private static byte[] getBytes(String filePath){
+    /*
+    将文件转换为byte数组
+     */
+    private byte[] getBytes(String filePath){
         byte[] buffer = null;
         try {
             File file = new File(filePath);
