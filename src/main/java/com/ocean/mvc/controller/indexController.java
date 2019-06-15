@@ -4,6 +4,7 @@ import com.ocean.mvc.entity.Wolf;
 import com.ocean.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +22,26 @@ import java.util.Map;
 @Controller
 public class indexController {
 
-    @RequestMapping({"/index.do","/"})
+    @RequestMapping({"/index.do"})
     public String index(){
         System.out.println(123);
         System.out.println("chy");
         return "index";
+    }
+
+
+    @RequestMapping("testControllerAdvice1.do")
+    @ResponseBody
+    public String testControllerAdvice1(){
+        int i = 1/0;
+        return "hello";
+    }
+
+    @RequestMapping("testControllerAdvice2.do")
+    public String testControllerAdvice2(ModelMap map){
+        System.out.println(map.get("author"));
+        int i = 1/0;
+        return "world";
     }
 
 //    http://localhost:8081/testFreemarker

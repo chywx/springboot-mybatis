@@ -5,6 +5,14 @@ public class Wolf {
     private String wolfName;
     private Integer age;
 
+    public Wolf(String wolfName, Integer age) {
+        this.wolfName = wolfName;
+        this.age = age;
+    }
+
+    public Wolf() {
+    }
+
     public Integer getId() {
         return id;
     }
