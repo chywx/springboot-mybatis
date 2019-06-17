@@ -121,3 +121,14 @@ spring:
 ## 粒子效果
 
 [canvas-nest](https://github.com/hustcc/canvas-nest.js/blob/master/README-zh.md)
+
+
+## @ControllerAdvice注解的使用
+
+```$xslt
+com.ocean.aspect.MyControllerAdvice
+// 返回error页面
+com.ocean.mvc.controller.indexController.testControllerAdvice1
+// 返回json数据
+com.ocean.mvc.controller.indexController.testControllerAdvice2
+```

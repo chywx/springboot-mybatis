@@ -1,7 +1,8 @@
 package com.ocean.aspect;
 
+import com.ocean.config.MyException;
+import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,21 +24,30 @@ public class MyControllerAdvice {
         model.addAttribute("author", "chenhaiyang");
     }
 
-    @ExceptionHandler(Exception.class)
-    public String errorHandler(Exception ex, HttpServletRequest request){
-//        map.addAttribute("code",500);
-//        map.addAttribute("msg",ex.getMessage());
-        request.setAttribute("msg",ex.getMessage());
+
+    /*
+    返回到error页面
+     */
+    @ExceptionHandler(MyException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public String errorHandler(MyException ex, HttpServletRequest request){
+        request.setAttribute("code",ex.getCode());
+        request.setAttribute("msg",ex.getMsg());
         return "error";
     }
 
-//    @ResponseBody
-//    @ExceptionHandler(Exception.class)
-//    public Map<String,Object> errorHandler(Exception ex){
-//        HashMap<String, Object> map = new HashMap<>();
-//        map.put("code",500);
-//        map.put("msg",ex.getMessage());
-//        return map;
-//    }
+
+    /*
+    接口类型返回
+     */
+    @ResponseBody
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public Map<String,Object> errorHandler(Exception ex){
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("code",500);
+        map.put("msg",ex.getMessage());
+        return map;
+    }
 
 }

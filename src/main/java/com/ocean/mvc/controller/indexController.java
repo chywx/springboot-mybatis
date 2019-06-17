@@ -1,14 +1,17 @@
 package com.ocean.mvc.controller;
 
+import com.ocean.config.MyException;
 import com.ocean.demo.DemoService;
 import com.ocean.mvc.entity.Wolf;
 import com.ocean.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,29 +29,40 @@ public class indexController {
 //    @Autowired
 //    private DemoService demoService;
 
+    @Value("${myhost}")
+    public String myhost;
+
     @RequestMapping({"/index.do"})
     public String index(){
         System.out.println("chy");
 //        System.out.println(demoService.say("helloworld"));
+        System.out.println("myhost:"+myhost);
         return "index";
     }
 
 
     @RequestMapping("testControllerAdvice1.do")
     @ResponseBody
-    public String testControllerAdvice1(){
+    public String testControllerAdvice1(@ModelAttribute("author") String author){
+        System.out.println("author:"+author);
         int i = 1/0;
         return "hello";
     }
 
     @RequestMapping("testControllerAdvice2.do")
     public String testControllerAdvice2(ModelMap map){
-        System.out.println(map.get("author"));
-        int i = 1/0;
+        System.out.println("author:"+map.get("author"));
+        try {
+            int i = 1/0;
+        }catch (Exception e){
+            throw new MyException(500l,map.get("author").toString());
+        }
         return "world";
     }
 
-//    http://localhost:8081/testFreemarker
+    /*
+    http://localhost:8081/testFreemarker
+     */
     @RequestMapping("testFreemarker")
     public String index(ModelMap modelMap, HttpServletRequest request){
         Map<String, Object> map = new HashMap<>();
