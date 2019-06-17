@@ -113,3 +113,11 @@ spring:
     <version>2.0.12</version>
 </dependency>
 ```
+
+## 自定义starter
+
+[demo-spring-boot-starter](https://github.com/chywx/demo-spring-boot-starter)
+
+## 粒子效果
+
+[canvas-nest](https://github.com/hustcc/canvas-nest.js/blob/master/README-zh.md)

@@ -159,6 +159,13 @@
             <version>2.0.12</version>
         </dependency>
 
+        <!--自定义starter-->
+        <!--<dependency>-->
+            <!--<groupId>com.ocean</groupId>-->
+            <!--<artifactId>demo-spring-boot-starter</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
 
     </dependencies>
 

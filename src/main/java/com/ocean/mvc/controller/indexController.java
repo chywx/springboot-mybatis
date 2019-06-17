@@ -1,5 +1,6 @@
 package com.ocean.mvc.controller;
 
+import com.ocean.demo.DemoService;
 import com.ocean.mvc.entity.Wolf;
 import com.ocean.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,13 @@ import java.util.Map;
 @Controller
 public class indexController {
 
+//    @Autowired
+//    private DemoService demoService;
+
     @RequestMapping({"/index.do"})
     public String index(){
-        System.out.println(123);
         System.out.println("chy");
+//        System.out.println(demoService.say("helloworld"));
         return "index";
     }
 
