@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ocean.mvc.dao.UserDao">
 
-	<insert id="insertUser" parameterType="com.ocean.mvc.entity.User" useGeneratedKeys="true" keyProperty="id">
-		insert into p_user(name,age,sex) values(#{name}, #{age}, #{sex})
-	</insert>
+    <insert id="insertUser" parameterType="com.ocean.mvc.entity.User" useGeneratedKeys="true" keyProperty="id">
+        insert into p_user(name,age,sex) values(#{name}, #{age}, #{sex})
+    </insert>
 
 </mapper>

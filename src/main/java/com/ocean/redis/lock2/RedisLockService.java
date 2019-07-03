@@ -18,7 +18,7 @@ public class RedisLockService {
         config.setMaxWaitMillis(1000 * 100);
         // 在borrow一个jedis实例时，是否需要验证，若为true，则所有jedis实例均是可用的
         config.setTestOnBorrow(true);
-        pool = new JedisPool(config, Constant2.HOST, 6379, 3000,"123456");
+        pool = new JedisPool(config, Constant2.HOST, 6379, 3000, "123456");
     }
 
     RedisDistributedLock lock = new RedisDistributedLock(pool);

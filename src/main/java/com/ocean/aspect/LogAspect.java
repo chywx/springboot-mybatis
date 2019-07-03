@@ -22,11 +22,11 @@ public class LogAspect {
 
 
     @Pointcut("execution(* com.ocean.mvc.controller..*.*(..))")
-    public void log(){
+    public void log() {
     }
 
     @Before("log()")
-    public void before(JoinPoint joinPoint){
+    public void before(JoinPoint joinPoint) {
         // 记录开始时间
         startTime.set(System.currentTimeMillis());
         // 接收到请求，记录请求内容
@@ -40,8 +40,8 @@ public class LogAspect {
         log.info("陈海洋-ARGS : " + Arrays.toString(joinPoint.getArgs()));
     }
 
-    @AfterReturning(returning = "ret",pointcut = "log()")
-    public void after(Object ret){
+    @AfterReturning(returning = "ret", pointcut = "log()")
+    public void after(Object ret) {
         // 处理完请求，返回内容
         log.info("陈海洋-RESPONSE : " + ret);
         log.info("陈海洋-PEND TIME : " + (System.currentTimeMillis() - startTime.get()));

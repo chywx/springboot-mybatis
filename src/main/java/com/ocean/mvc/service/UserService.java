@@ -10,11 +10,11 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
-    public User findUserById(Integer userId){
+    public User findUserById(Integer userId) {
         return userDao.findUserById(userId);
     }
 
-    public int insertUser(User user){
+    public int insertUser(User user) {
         return userDao.insertUser(user);
     }
 }

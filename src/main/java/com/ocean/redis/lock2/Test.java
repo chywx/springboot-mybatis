@@ -11,7 +11,6 @@ public class Test {
 }
 
 
-
 class ThreadA extends Thread {
     private RedisLockService service;
 

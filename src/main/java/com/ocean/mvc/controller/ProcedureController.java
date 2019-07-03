@@ -23,21 +23,22 @@ public class ProcedureController {
 
     /**
      * 传入sexid返回对应的性别数目 1表示男 0表示女
+     *
      * @return
      */
     @GetMapping("/testProcedure.do")
-    public Integer testProcedure(){
-        Map<String,Integer> parmeterMap=new HashMap<String,Integer>();
+    public Integer testProcedure() {
+        Map<String, Integer> parmeterMap = new HashMap<String, Integer>();
         parmeterMap.put("sexid", 1);
         parmeterMap.put("usercount", -1);
         service.testProcedure(parmeterMap);
-        System.out.println("testProcedure:"+parmeterMap.get("usercount"));
+        System.out.println("testProcedure:" + parmeterMap.get("usercount"));
         return parmeterMap.get("usercount");
     }
 
 
     @GetMapping("/testProcedure2.do")
-    public Integer testProcedure2(){
+    public Integer testProcedure2() {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         System.out.println(sqlSession.getConnection());
         /**
@@ -51,7 +52,7 @@ public class ProcedureController {
         parameterMap.put("usercount", -1);
         sqlSession.selectOne(statement, parameterMap);
         Integer result = parameterMap.get("usercount");
-        System.out.println("testProcedure2:"+result);
+        System.out.println("testProcedure2:" + result);
         return parameterMap.get("usercount");
     }
 

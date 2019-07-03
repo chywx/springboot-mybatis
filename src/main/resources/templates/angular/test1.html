@@ -8,8 +8,8 @@
 <body>
 
 
-
-<div ng-app="" ng-init="firstName='dahai';quantity=1;cost=5;points=[1,15,19,2,40];person={firstName:'John',lastName:'Doe'}">
+<div ng-app=""
+     ng-init="firstName='dahai';quantity=1;cost=5;points=[1,15,19,2,40];person={firstName:'John',lastName:'Doe'}">
     <p>名字 : <input type="text" ng-model="name"></p>
     <h1>Hello {{name}}</h1>
     <p>初始化 <span ng-bind="firstName"></span></p>
@@ -17,9 +17,6 @@
     <p>数组：{{points[2]}}</p>
     <p>对象属性：{{person.firstName + ' ' + person.lastName}}</p>
 </div>
-
-
-
 
 
 </body>

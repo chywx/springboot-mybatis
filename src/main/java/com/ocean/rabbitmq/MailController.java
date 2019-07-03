@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *  https://my.oschina.net/liululee/blog/2236623
- *  https://www.cnblogs.com/yufeng218/p/9452621.html
+ * https://my.oschina.net/liululee/blog/2236623
+ * https://www.cnblogs.com/yufeng218/p/9452621.html
  */
 @RestController
 @RequestMapping(value = "/mail")
@@ -21,7 +21,7 @@ public class MailController {
     }
 
     /**
-     *  http://localhost:8081/mail/default
+     * http://localhost:8081/mail/default
      * this.rabbitTemplate.convertAndSend(RabbitConfig.DEFAULT_MAIL_QUEUE, mailEntity);
      * 对应 {@link MailHandler#listenerAutoAck};
      * this.rabbitTemplate.convertAndSend(RabbitConfig.MANUAL_MAIL_QUEUE, mailEntity);

@@ -20,16 +20,14 @@ public class WolfService {
     }
 
 
-    public void save1(Wolf wolf){
+    public void save1(Wolf wolf) {
         dao.save1(wolf);
-        int i = 1/0;
+        int i = 1 / 0;
     }
 
-    public void save2(Wolf wolf){
+    public void save2(Wolf wolf) {
         dao.save2(wolf);
     }
-
-
 
 
     public HashMap testProcedure(Map<String, Integer> map) {

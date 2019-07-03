@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface UserDao {
 
-    @SelectProvider(type = SqlProvider.class,method = "selectUser")
+    @SelectProvider(type = SqlProvider.class, method = "selectUser")
     public User findUserById(Integer userId);
 
     int insertUser(User user);

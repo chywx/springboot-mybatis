@@ -25,20 +25,19 @@ public class PdfConvertUtil {
     pdf转换html
      */
     @Test
-    public void pdfToHtmlTest()  {
+    public void pdfToHtmlTest() {
         String outputPath = "D:\\code\\pdf\\HashMap.html";
         byte[] bytes = getBytes("D:\\code\\pdf\\HashMap.pdf");
 //        try() 写在()里面会自动关闭流
-        try (BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(outputPath)),"UTF-8"));){
+        try (BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(outputPath)), "UTF-8"));) {
             //加载PDF文档
             PDDocument document = PDDocument.load(bytes);
             PDFDomTree pdfDomTree = new PDFDomTree();
-            pdfDomTree.writeText(document,out);
+            pdfDomTree.writeText(document, out);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 
 
     public void pdftohtml(byte[] bytes, String htmlPath) throws Exception {
@@ -47,7 +46,7 @@ public class PdfConvertUtil {
         // 输出pdf文本
 //        readText(document);
         //将字节流转换成字符流
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(htmlPath)),"UTF-8"));
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(htmlPath)), "UTF-8"));
         //实例化pdfdom树对象
         PDFDomTree pdfDomTree = new PDFDomTree();
         //开始写入html文件
@@ -68,7 +67,7 @@ public class PdfConvertUtil {
     /*
     将文件转换为byte数组
      */
-    private byte[] getBytes(String filePath){
+    private byte[] getBytes(String filePath) {
         byte[] buffer = null;
         try {
             File file = new File(filePath);

@@ -13,12 +13,12 @@ public class UserController {
     UserService userService;
 
     @RequestMapping("/findUserById.do")
-    public User findUserById(Integer userId){
+    public User findUserById(Integer userId) {
         return userService.findUserById(userId);
     }
 
     @RequestMapping("/insertUser.do")
-    public int insertUser(User user){
+    public int insertUser(User user) {
         System.out.println("插入之前：" + user);
         int i = userService.insertUser(user);
         System.out.println("插入之后：" + user);

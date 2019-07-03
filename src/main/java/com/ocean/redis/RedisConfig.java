@@ -47,12 +47,13 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     /**
      * 采用RedisCacheManager作为缓存管理器
+     *
      * @param connectionFactory
      */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
         RedisCacheManager redisCacheManager = RedisCacheManager.create(connectionFactory);
-        return  redisCacheManager;
+        return redisCacheManager;
     }
 
     @Bean

@@ -26,35 +26,36 @@ public class RedisController {
     private StringRedisTemplate stringRedisTemplate;
 
     @GetMapping("testRedis")
-    public Wolf testRedis(){
-        Wolf wolf=new Wolf();
+    public Wolf testRedis() {
+        Wolf wolf = new Wolf();
         wolf.setId(23);
         wolf.setWolfName("不会打篮球的程序不是好男人");
-        redisService.valuePut("aaa",wolf);
+        redisService.valuePut("aaa", wolf);
         System.out.println();
-        return (Wolf)redisService.getValue("aaa");
+        return (Wolf) redisService.getValue("aaa");
     }
 
     /**
      * 待测试，有些忘了
+     *
      * @return
      */
     @GetMapping("testLock")
     public String testLock() {
         Long lockTime;
         boolean flag = true;
-        if((lockTime = redisLock.lock("lock2", "quesheng")) != 0){
+        if ((lockTime = redisLock.lock("lock2", "quesheng")) != 0) {
             System.out.println("进来了");
-            if(flag == true){
+            if (flag == true) {
                 flag = false;
                 redisLock.unlock("lock2", lockTime, "quesheng");
                 return "flag为true";
-            }else{
+            } else {
                 redisLock.unlock("lock2", lockTime, "quesheng");
                 return "flag为false";
             }
-        }else{
-            return lockTime+"";
+        } else {
+            return lockTime + "";
         }
     }
 

@@ -49,6 +49,7 @@ public interface RedisService<HK, T> {
 
     /**
      * 对象的实体类
+     *
      * @param key
      * @param domain
      * @return
@@ -57,6 +58,7 @@ public interface RedisService<HK, T> {
 
     /**
      * 获取对象实体类
+     *
      * @param key
      * @return
      */

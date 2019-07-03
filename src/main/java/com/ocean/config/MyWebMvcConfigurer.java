@@ -16,7 +16,7 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
     }
 
     @Bean
-    public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet){
+    public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet) {
         ServletRegistrationBean<DispatcherServlet> servletServletRegistrationBean = new ServletRegistrationBean<>(dispatcherServlet);
         servletServletRegistrationBean.addUrlMappings("*.do");
         return servletServletRegistrationBean;

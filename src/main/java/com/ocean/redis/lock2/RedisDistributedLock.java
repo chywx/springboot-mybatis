@@ -17,12 +17,13 @@ public class RedisDistributedLock {
 
     /**
      * 加锁
-     * @param locaName  锁的key
-     * @param acquireTimeout  获取超时时间
-     * @param timeout   锁的超时时间
+     *
+     * @param locaName       锁的key
+     * @param acquireTimeout 获取超时时间
+     * @param timeout        锁的超时时间
      * @return 锁标识
      */
-    public String lockWithTimeout(String locaName,long acquireTimeout, long timeout) {
+    public String lockWithTimeout(String locaName, long acquireTimeout, long timeout) {
         Jedis conn = null;
         String retIdentifier = null;
         try {
@@ -33,7 +34,7 @@ public class RedisDistributedLock {
             // 锁名，即key值
             String lockKey = "lock:" + locaName;
             // 超时时间，上锁后超过此时间则自动释放锁
-            int lockExpire = (int)(timeout / 1000);
+            int lockExpire = (int) (timeout / 1000);
 
             // 获取锁的超时时间，超过这个时间则放弃获取锁
             long end = System.currentTimeMillis() + acquireTimeout;
@@ -67,8 +68,9 @@ public class RedisDistributedLock {
 
     /**
      * 释放锁
-     * @param lockName 锁的key
-     * @param identifier    释放锁的标识
+     *
+     * @param lockName   锁的key
+     * @param identifier 释放锁的标识
      * @return
      */
     public boolean releaseLock(String lockName, String identifier) {

@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Repository
 @Mapper
-public interface WolfDao{
+public interface WolfDao {
 
     @Select("select id,wolf_name wolfName ,age from github.wolf")
     List<Wolf> queryAll();

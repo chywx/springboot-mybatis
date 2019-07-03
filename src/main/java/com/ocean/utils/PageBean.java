@@ -27,9 +27,9 @@ public class PageBean<T> {
         this.currentPage = currentPage;
         this.pageSize = pageSize;
         this.totalNum = totalNum;
-        this.totalPage = (this.totalNum+this.pageSize-1)/this.pageSize;
-        this.startIndex = (this.currentPage-1)*this.pageSize;
-        this.isMore = this.currentPage >= this.totalPage?0:1;
+        this.totalPage = (this.totalNum + this.pageSize - 1) / this.pageSize;
+        this.startIndex = (this.currentPage - 1) * this.pageSize;
+        this.isMore = this.currentPage >= this.totalPage ? 0 : 1;
     }
 
     public Integer getCurrentPage() {

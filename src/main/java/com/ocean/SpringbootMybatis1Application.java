@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import java.util.Properties;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.ocean","com.email","com.swagger"})
+@ComponentScan(basePackages = {"com.ocean", "com.email", "com.swagger"})
 public class SpringbootMybatis1Application {
 
     public static void main(String[] args) {
@@ -20,13 +20,13 @@ public class SpringbootMybatis1Application {
 
     //配置mybatis的分页插件pageHelper
     @Bean
-    public PageHelper pageHelper(){
+    public PageHelper pageHelper() {
         PageHelper pageHelper = new PageHelper();
         Properties properties = new Properties();
-        properties.setProperty("offsetAsPageNum","true");
-        properties.setProperty("rowBoundsWithCount","true");
-        properties.setProperty("reasonable","true");
-        properties.setProperty("dialect","mysql");    //配置mysql数据库的方言
+        properties.setProperty("offsetAsPageNum", "true");
+        properties.setProperty("rowBoundsWithCount", "true");
+        properties.setProperty("reasonable", "true");
+        properties.setProperty("dialect", "mysql");    //配置mysql数据库的方言
         pageHelper.setProperties(properties);
         return pageHelper;
     }

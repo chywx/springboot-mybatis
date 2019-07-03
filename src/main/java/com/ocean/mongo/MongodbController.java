@@ -18,11 +18,14 @@ public class MongodbController {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    /**表名*/
+    /**
+     * 表名
+     */
     private static final String collectionName = "user";
 
     /**
      * 描述：新增
+     *
      * @param user
      * @return ResultObject
      * http://localhost:8081/mongodbController/insert?userId=015&name=Back&uclass=B&email=b12@sina.com&age=11&dataStatus=1
@@ -36,6 +39,7 @@ public class MongodbController {
 
     /**
      * 描述：删除
+     *
      * @param userId
      * @return ResultObject
      */
@@ -49,6 +53,7 @@ public class MongodbController {
 
     /**
      * 描述：修改
+     *
      * @param user
      * @return ResultObject
      */
@@ -66,6 +71,7 @@ public class MongodbController {
 
     /**
      * 描述：查询
+     *
      * @param
      * @return ResultObject
      */

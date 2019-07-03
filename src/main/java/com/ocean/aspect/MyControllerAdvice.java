@@ -13,12 +13,13 @@ import java.util.Map;
 @ControllerAdvice
 public class MyControllerAdvice {
 
-//    应用到所有@RequestMapping注解方法，在其执行之前初始化数据绑定器
+    //    应用到所有@RequestMapping注解方法，在其执行之前初始化数据绑定器
     @InitBinder
-    public void initBinder(WebDataBinder binder) {}
+    public void initBinder(WebDataBinder binder) {
+    }
 
 
-//    把值绑定到Model中，使全局@RequestMapping可以获取到该值
+    //    把值绑定到Model中，使全局@RequestMapping可以获取到该值
     @ModelAttribute
     public void addAttributes(Model model) {
         model.addAttribute("author", "chenhaiyang");
@@ -30,9 +31,9 @@ public class MyControllerAdvice {
      */
     @ExceptionHandler(MyException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public String errorHandler(MyException ex, HttpServletRequest request){
-        request.setAttribute("code",ex.getCode());
-        request.setAttribute("msg",ex.getMsg());
+    public String errorHandler(MyException ex, HttpServletRequest request) {
+        request.setAttribute("code", ex.getCode());
+        request.setAttribute("msg", ex.getMsg());
         return "error";
     }
 
@@ -43,10 +44,10 @@ public class MyControllerAdvice {
     @ResponseBody
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Map<String,Object> errorHandler(Exception ex){
+    public Map<String, Object> errorHandler(Exception ex) {
         HashMap<String, Object> map = new HashMap<>();
-        map.put("code",500);
-        map.put("msg",ex.getMessage());
+        map.put("code", 500);
+        map.put("msg", ex.getMessage());
         return map;
     }
 

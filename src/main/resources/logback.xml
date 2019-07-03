@@ -5,12 +5,12 @@
     <!-- <property name="LOG_HOME" value="D:/data/logs" /> -->
 
     <!-- 应用名称：和统一配置中的项目代码保持一致（小写） -->
-    <property name="APP_NAME" value="base" />
+    <property name="APP_NAME" value="base"/>
     <!--日志文件保留天数 -->
-    <property name="LOG_MAX_HISTORY" value="180" />
+    <property name="LOG_MAX_HISTORY" value="180"/>
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
     <!--应用日志文件保存路径 -->
-    <property name="LOG_APP_HOME" value="${APP_NAME}/app" />
+    <property name="LOG_APP_HOME" value="${APP_NAME}/app"/>
 
     <!--=========================== 按照每天生成日志文件：默认配置=================================== -->
     <!-- 控制台输出 -->
@@ -37,23 +37,23 @@
     </appender>
     <!--=============================== 日志输出: 默认主业务日志 ====================================== -->
     <logger name="org.springframework">
-        <level value="WARN" />
+        <level value="WARN"/>
     </logger>
     <logger name="org.apache.shiro">
-        <level value="WARN" />
+        <level value="WARN"/>
     </logger>
     <logger name="freemarker">
-        <level value="WARN" />
+        <level value="WARN"/>
     </logger>
     <logger name="org.hibernate">
-        <level value="WARN" />
+        <level value="WARN"/>
     </logger>
     <logger name="org.hibernate.SQL">
-        <level value="DEBUG" />
+        <level value="DEBUG"/>
     </logger>
 
     <root level="DEBUG">
-        <appender-ref ref="APP" />
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="APP"/>
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

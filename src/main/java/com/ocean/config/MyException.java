@@ -5,7 +5,7 @@ public class MyException extends RuntimeException {
     private long code;
     private String msg;
 
-    public MyException(Long code, String msg){
+    public MyException(Long code, String msg) {
         this.code = code;
         this.msg = msg;
     }

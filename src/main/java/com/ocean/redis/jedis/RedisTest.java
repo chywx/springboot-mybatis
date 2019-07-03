@@ -15,50 +15,50 @@ public class RedisTest {
     private Jedis jedis = null;
 
     @Before
-    public void before(){
+    public void before() {
         jedis = new Jedis("www.chendahai.cn");
         jedis.auth("123456");
     }
 
     @After
-    public void after(){
+    public void after() {
         jedis.close();
     }
 
     @Test
-    public void ping(){
+    public void ping() {
         System.out.println(jedis.ping());
     }
 
     @Test
-    public void testString(){
-        jedis.set("phone","13121939122");
+    public void testString() {
+        jedis.set("phone", "13121939122");
         System.out.println(jedis.get("phone"));
-        jedis.append("phone","-86");
+        jedis.append("phone", "-86");
         System.out.println(jedis.get("phone"));
         jedis.del("phone");
         System.out.println(jedis.get("phone"));
         // 设置多个键值对==》mset
-        jedis.mset("name","dahai","age","25");
+        jedis.mset("name", "dahai", "age", "25");
         System.out.println(jedis.mget("age"));
         jedis.incr("age");
         System.out.println(jedis.mget("age"));
     }
 
     @Test
-    public void testHash(){
-        Map<String,String> map=new HashMap<>();
-        map.put("userName","lisi");
-        map.put("age","22");
-        map.put("gender","男");
+    public void testHash() {
+        Map<String, String> map = new HashMap<>();
+        map.put("userName", "lisi");
+        map.put("age", "22");
+        map.put("gender", "男");
         // 放入map中
-        jedis.hmset("user",map);
+        jedis.hmset("user", map);
         // 获取指定map的key值
-        List<String> user = jedis.hmget("user","age","userName");
+        List<String> user = jedis.hmget("user", "age", "userName");
         System.out.println(user);
         // 删除key
-        jedis.hdel("user","gender");
-        System.out.println(jedis.hmget("user","gender"));
+        jedis.hdel("user", "gender");
+        System.out.println(jedis.hmget("user", "gender"));
         // 是否存在key 返回true/false
         System.out.println(jedis.exists("user"));
         // map里面key的个数
@@ -70,54 +70,54 @@ public class RedisTest {
     }
 
     @Test
-    public void testList(){
+    public void testList() {
         jedis.del("context");
-        System.out.println(jedis.lrange("context",0,-1));
+        System.out.println(jedis.lrange("context", 0, -1));
         // lpust存放数据
-        jedis.lpush("context","你好啊");
-        jedis.lpush("context","我叫张三");
-        jedis.lpush("context","他叫李四");
+        jedis.lpush("context", "你好啊");
+        jedis.lpush("context", "我叫张三");
+        jedis.lpush("context", "他叫李四");
         //lrange 获取数据 接收3个参数  1、key  2、从什么开始 3、到那里结束 -1 表示最后一个
-        System.out.println(jedis.lrange("context",0,1));
-        System.out.println(jedis.lrange("context",0,2));
-        System.out.println(jedis.lrange("context",0,-1));
+        System.out.println(jedis.lrange("context", 0, 1));
+        System.out.println(jedis.lrange("context", 0, 2));
+        System.out.println(jedis.lrange("context", 0, -1));
     }
 
     @Test
-    public  void testSet(){
+    public void testSet() {
         //存放数据，默认去重
-        jedis.sadd("users","libai");
-        jedis.sadd("users","huahua");
-        jedis.sadd("users","libai");
+        jedis.sadd("users", "libai");
+        jedis.sadd("users", "huahua");
+        jedis.sadd("users", "libai");
         // 获取加入的value值
         System.out.println(jedis.smembers("users"));
         // 判断user 是否某个值
-        System.out.println(jedis.sismember("users","libai"));
+        System.out.println(jedis.sismember("users", "libai"));
         // 返回个数
         System.out.println(jedis.scard("users"));
         // 移除
-        System.out.println(jedis.srem("users","libai"));
+        System.out.println(jedis.srem("users", "libai"));
         System.out.println(jedis.smembers("users"));
     }
 
     @Test
-    public  void testZset(){
+    public void testZset() {
         //存放数据 按score 进行排序
-        jedis.zadd("userss",12,"libai");
-        jedis.zadd("userss",56,"zhangsan");
-        jedis.zadd("userss",89,"wangwu");
-        jedis.zadd("userss",58,"uu");
-        jedis.zadd("userss",1,"start");
+        jedis.zadd("userss", 12, "libai");
+        jedis.zadd("userss", 56, "zhangsan");
+        jedis.zadd("userss", 89, "wangwu");
+        jedis.zadd("userss", 58, "uu");
+        jedis.zadd("userss", 1, "start");
         // 获取加入userss中的value
-        System.out.println(jedis.zrange("userss",0,-1));
+        System.out.println(jedis.zrange("userss", 0, -1));
         // 移除
-        System.out.println(jedis.zrem("userss","wangwu"));
+        System.out.println(jedis.zrem("userss", "wangwu"));
         // 获取加入userss中的value
-        System.out.println(jedis.zrange("userss",0,-1));
+        System.out.println(jedis.zrange("userss", 0, -1));
         // 元素的索引值
-        System.out.println(jedis.zrank("userss","uu"));
+        System.out.println(jedis.zrank("userss", "uu"));
         // 进行反转操作
-        System.out.println(jedis.zrevrange("userss",0,-1));
+        System.out.println(jedis.zrevrange("userss", 0, -1));
     }
 
     /*
@@ -129,10 +129,10 @@ public class RedisTest {
     5、result.isEmpty();    // 判断事务是否成功
     6、jedis.unwatch();    // 解除监视
      */
-    public void testTransaction(){
+    public void testTransaction() {
         Transaction multi = jedis.multi();
-        multi.set("k3","v3");
-        multi.set("k2","v2");
+        multi.set("k3", "v3");
+        multi.set("k2", "v2");
         // 提交事务
         multi.exec();
         // 回滚事务
@@ -146,7 +146,7 @@ public class RedisTest {
     }
 
     @Test
-    public void testTransaction2(){
+    public void testTransaction2() {
         jedis.select(4);
         System.out.println(jedis.get("k1"));
         jedis.watch("k1");
