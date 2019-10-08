@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MailController {
     private final RabbitTemplate rabbitTemplate;
 
-    @Autowired
+//    @Autowired
     public MailController(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }

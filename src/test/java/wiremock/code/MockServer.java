@@ -7,12 +7,12 @@ public class MockServer {
     public static void main(String[] args) {
         WireMock.configureFor(8888);
         WireMock.removeAllMappings();
-        mock("/order/1",1);
-        mock("/order/2",2);
+        mock("/order/1", 1);
+        mock("/order/2", 2);
     }
 
-    private static void mock(String url,Object param){
-        WireMock.stubFor(WireMock.get(WireMock.urlPathEqualTo(url)).willReturn(WireMock.aResponse().withBody("{\"id\":"+param+"}").withStatus(200)));
+    private static void mock(String url, Object param) {
+        WireMock.stubFor(WireMock.get(WireMock.urlPathEqualTo(url)).willReturn(WireMock.aResponse().withBody("{\"id\":" + param + "}").withStatus(200)));
     }
 
 }

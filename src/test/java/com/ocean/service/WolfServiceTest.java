@@ -15,7 +15,6 @@ import java.util.List;
 public class WolfServiceTest {
 
 
-
     @Autowired
     private WolfDao dao;
 
@@ -26,7 +25,7 @@ public class WolfServiceTest {
     }
 
     @Test
-    public void queryByName(){
+    public void queryByName() {
         Wolf chy = dao.queryByName("chy");
         System.out.println(chy);
     }

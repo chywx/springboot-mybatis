@@ -5,7 +5,7 @@
 #    suffix: suffix
 
 server:
-  port: 8080
+  port: 7080
 
 myhost: www.chendahai.cn
 
@@ -33,7 +33,7 @@ spring:
   mail:
     host: smtp.qq.com
     username: 1559843332@qq.com # 用户名
-    password: 授权码 # 不是密码，是授权码
+    password: sneeqtgzbkvpigei # 不是密码，是授权码
     properties: {mail.smtp.auth=true,mail.smtp.starttls.enable=true,mail.smtp.starttls.required=true}
 
   #  整合redis

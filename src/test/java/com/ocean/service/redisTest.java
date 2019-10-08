@@ -24,15 +24,15 @@ public class redisTest {
     private RedisServiceImpl redisService;
 
     @Test
-    public void test() throws Exception{
+    public void test() throws Exception {
 //        基本写法
 //        stringRedisTemplate.opsForValue().set("aaa","111");
 //        Assert.assertEquals("111",stringRedisTemplate.opsForValue().get("aaa"));
 //        System.out.println(stringRedisTemplate.opsForValue().get("aaa"));
-        Wolf wolf=new Wolf();
+        Wolf wolf = new Wolf();
         wolf.setId(23);
         wolf.setWolfName("不会打篮球的程序不是好男人");
-        redisService.valuePut("aaa",wolf);
+        redisService.valuePut("aaa", wolf);
         System.out.println(redisService.getValue("aaa"));
     }
 

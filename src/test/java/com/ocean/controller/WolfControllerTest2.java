@@ -26,14 +26,14 @@ public class WolfControllerTest2 {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void queryAll(){
-        String url  = "/wolf/queryAll.do";
+    public void queryAll() {
+        String url = "/wolf/queryAll.do";
         // 封装入参数，不要替换为Map与HashMap，否则参数无法传递
         MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<>();
         paramMap.add("pageNum", 1);
         paramMap.add("pageSize", 5);
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<>(paramMap,headers);
+        HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<>(paramMap, headers);
 
 
         // 1、使用postForObject请求接口
@@ -46,7 +46,8 @@ public class WolfControllerTest2 {
 
 //        // 3、使用exchange请求接口
 //        //设置接受参数的类型 只有用exchange+ParameterizedTypeReference接收到的pageInfo中的List是user类，上面两种方式接收到的都是个LinkedList
-        ParameterizedTypeReference<List<Wolf>> type = new ParameterizedTypeReference<List<Wolf>>() {};
+        ParameterizedTypeReference<List<Wolf>> type = new ParameterizedTypeReference<List<Wolf>>() {
+        };
         ResponseEntity<List<Wolf>> response3 = restTemplate.exchange(url, HttpMethod.POST, httpEntity, type);
         System.out.println("result3====================" + response3.getBody());
 
@@ -55,13 +56,13 @@ public class WolfControllerTest2 {
     }
 
     @Test
-    public void queryByName2(){
-        String url  = "/wolf/queryByName2.do";
+    public void queryByName2() {
+        String url = "/wolf/queryByName2.do";
         // 封装入参数，不要替换为Map与HashMap，否则参数无法传递
         MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<>();
         paramMap.add("wolfName", "wx");
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<>(paramMap,headers);
+        HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<>(paramMap, headers);
         // 1、使用postForObject请求接口
         Wolf result = restTemplate.postForObject(url, paramMap, Wolf.class);
         System.out.println("result==================" + result);

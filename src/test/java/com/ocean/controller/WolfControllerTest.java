@@ -40,7 +40,7 @@ public class WolfControllerTest {
     private WebApplicationContext wac;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         this.mvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
 
@@ -65,9 +65,8 @@ public class WolfControllerTest {
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();// 返回执行请求的结果
 
-        System.out.println("response------------------:"+mvcResult.getResponse().getContentAsString());
+        System.out.println("response------------------:" + mvcResult.getResponse().getContentAsString());
     }
-
 
 
 }

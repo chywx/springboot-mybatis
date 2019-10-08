@@ -13,7 +13,7 @@ public class MailSend {
     @Autowired
     private JavaMailSender mailSender;
 
-    @RequestMapping("/testsend")
+    @RequestMapping("/testsend.do")
     @ResponseBody
     public String sendSimpleMail() throws Exception {
         SimpleMailMessage message = new SimpleMailMessage();

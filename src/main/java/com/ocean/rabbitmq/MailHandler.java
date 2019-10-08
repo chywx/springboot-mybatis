@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-@Component
+//@Component
 public class MailHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(MailHandler.class);
