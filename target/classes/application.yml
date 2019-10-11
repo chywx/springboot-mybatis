@@ -1,30 +1,44 @@
-server:
-    port: 8080
+demo:
+  service:
+    enable: true
+    prefix: prefix
+    suffix: suffix
 
+server:
+  port: 7080
+
+myhost: 127.0.0.1
 
 spring:
-#  数据源配置
+  #  配置文件上传大小
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+  profiles:
+    include: freemarker
+  #  数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver # com.mysql.jdbc.Driver     This is deprecated
-    url: jdbc:mysql://127.0.0.1:3306/github?characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://${myhost}:3306/github?characterEncoding=UTF-8&useSSL=false
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
-#  配置视图解析
+  #  配置视图解析
   mvc:
     view:
       suffix: .html
       prefix: classpath:/templates/
-#  配置邮件发送
+  #  配置邮件发送
   mail:
     host: smtp.qq.com
     username: 1559843332@qq.com # 用户名
-    password: 授权码 # 不是密码，是授权码
+    password: abcdefghijklimn # 不是密码，是授权码
     properties: {mail.smtp.auth=true,mail.smtp.starttls.enable=true,mail.smtp.starttls.required=true}
 
-#  整合redis
+  #  整合redis
   redis:
-    host: 127.0.0.1
+    host: ${myhost}
     # Redis服务器连接端口
     port: 6379
     password: 123456
@@ -41,16 +55,16 @@ spring:
     #默认是索引为0的数据库
     database: 0
 
-#  整合MongoDB
+  #  整合MongoDB
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27017/github
+      uri: mongodb://${myhost}:27017/github
 
-#  整合rabbitmq
+  #  整合rabbitmq
   rabbitmq:
     username: admin
     password: 123456
-    host: 127.0.0.1
+    host: ${myhost}
     port: 5672
     virtual-host: my_vhost
     #手动ACK 不开启自动ACK模式,目的是防止报错后未正确处理消息丢失 默认 为 none

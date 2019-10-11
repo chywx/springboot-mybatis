@@ -26,16 +26,17 @@ import java.util.Map;
 @Controller
 public class indexController {
 
-//    @Autowired
-//    private DemoService demoService;
+    @Autowired
+    private DemoService demoService;
 
     @Value("${myhost}")
     public String myhost;
 
     @RequestMapping({"/index.do"})
+    @ResponseBody
     public String index() {
         System.out.println("chy");
-//        System.out.println(demoService.say("helloworld"));
+        System.out.println(demoService.say("helloworld"));
         System.out.println("myhost:" + myhost);
         return "index";
     }

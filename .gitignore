@@ -4,6 +4,9 @@
 # Log file
 *.log
 
+.idea/
+/src/main/resources/application-dev.yml
+
 # BlueJ files
 *.ctxt
 

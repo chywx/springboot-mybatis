@@ -1,8 +1,8 @@
-#demo:
-#  service:
-#    enable: true
-#    prefix: prefix
-#    suffix: suffix
+demo:
+  service:
+    enable: true
+    prefix: prefix
+    suffix: suffix
 
 server:
   port: 7080
