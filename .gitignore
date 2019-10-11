@@ -6,6 +6,7 @@
 
 .idea/
 /src/main/resources/application-dev.yml
+springboot_mybatis1.iml
 
 # BlueJ files
 *.ctxt
