@@ -167,12 +167,12 @@
         </dependency>
 
 
-        <!--自定义starter-->
-        <dependency>
-            <groupId>cn.chendahai</groupId>
-            <artifactId>demo-spring-boot-starter</artifactId>
-            <version>1.0.3</version>
-        </dependency>
+      <!-- https://mvnrepository.com/artifact/cn.chendahai/dingding-spring-boot-starter -->
+      <dependency>
+        <groupId>cn.chendahai</groupId>
+        <artifactId>dingding-spring-boot-starter</artifactId>
+        <version>1.0.3</version>
+      </dependency>
 
 
     </dependencies>

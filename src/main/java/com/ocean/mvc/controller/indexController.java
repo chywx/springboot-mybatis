@@ -1,22 +1,16 @@
 package com.ocean.mvc.controller;
 
-import cn.chendahai.demo.DemoService;
+import cn.chendahai.dingding.service.DingdingService;
 import com.ocean.config.MyException;
-import com.ocean.mvc.entity.Wolf;
-import com.ocean.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.ResourceUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,18 +21,16 @@ import java.util.Map;
 public class indexController {
 
     @Autowired
-    private DemoService demoService;
+    private DingdingService dingdingService;
 
     @Value("${myhost}")
     public String myhost;
 
     @RequestMapping({"/index.do"})
     @ResponseBody
-    public String index() {
+    public Object index() {
         System.out.println("chy");
-        System.out.println(demoService.say("helloworld"));
-        System.out.println("myhost:" + myhost);
-        return "index";
+        return dingdingService.send("hello world");
     }
 
 
