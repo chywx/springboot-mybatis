@@ -15,7 +15,7 @@ public class PdfConvertUtil {
      */
     @Test
     public void readPdfTextTest() throws IOException {
-        byte[] bytes = getBytes("D:\\code\\pdf\\HashMap.pdf");
+        byte[] bytes = getBytes("C:\\Users\\Administrator\\Desktop\\xz.pdf");
         //加载PDF文档
         PDDocument document = PDDocument.load(bytes);
         readText(document);
@@ -26,8 +26,8 @@ public class PdfConvertUtil {
      */
     @Test
     public void pdfToHtmlTest() {
-        String outputPath = "D:\\code\\pdf\\HashMap.html";
-        byte[] bytes = getBytes("D:\\code\\pdf\\HashMap.pdf");
+        String outputPath = "C:\\Users\\Administrator\\Desktop\\bk.html";
+        byte[] bytes = getBytes("C:\\Users\\Administrator\\Desktop\\bk.pdf");
 //        try() 写在()里面会自动关闭流
         try (BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(outputPath)), "UTF-8"));) {
             //加载PDF文档
@@ -35,7 +35,8 @@ public class PdfConvertUtil {
             PDFDomTree pdfDomTree = new PDFDomTree();
             pdfDomTree.writeText(document, out);
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("haha");
         }
     }
 
