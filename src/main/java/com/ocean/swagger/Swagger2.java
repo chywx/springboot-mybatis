@@ -1,4 +1,4 @@
-package com.swagger;
+package com.ocean.swagger;
 
 
 import org.springframework.context.annotation.Bean;
