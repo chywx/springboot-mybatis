@@ -28,7 +28,10 @@ public class KeyPairGenUtil {
 
     public static void main(String[] args) throws Exception {
         generateKeyPair();
-        encrypt("root");
+        String encrypt = encrypt("root");
+        System.out.println(encrypt);
+        String decrypt = decrypt(encrypt);
+        System.out.println(decrypt);
     }
 
     /**
@@ -79,7 +82,19 @@ public class KeyPairGenUtil {
 
         //加密
         String code = ConfigTools.encrypt(privateKey,text);
-        System.out.println(code);
         return code;
+    }
+    private static String decrypt(String text) throws Exception {
+        //读取私钥
+        FileInputStream in2 = new FileInputStream(new File(PUBLIC_KEY_FILE));
+        //如果改变key的长度这里需要适当调整
+        byte[] buffer = new byte[2048];
+
+        int count = in2.read(buffer);
+        String publicKey = new String(buffer,0,count);
+
+        //加密
+        String password = ConfigTools.decrypt(publicKey,text);
+        return password;
     }
 }
