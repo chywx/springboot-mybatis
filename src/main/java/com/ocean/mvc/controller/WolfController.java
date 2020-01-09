@@ -1,6 +1,7 @@
 package com.ocean.mvc.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ocean.mvc.entity.Wolf;
 import com.ocean.mvc.service.WolfService;
 import com.ocean.utils.PageBean;
@@ -46,15 +47,19 @@ public class WolfController {
         return list;
     }
 
+    /**
+     * PageHelper.startPage(currentPage, pageSize);仅对下一句sql有效，sql中limit不需要写
+     * @param currentPage 当前页 1
+     * @param pageSize    每页展示的数据量 5
+     * @return
+     */
     @ResponseBody
     @RequestMapping("/queryByPageHelper.do")
-    public PageBean<Wolf> queryByPageHelper(int currentPage, int pageSize) {
-        System.out.println("queryByPageHelper");
+    public PageInfo<Wolf> queryByPageHelper(int currentPage, int pageSize) {
         PageHelper.startPage(currentPage, pageSize);
         List<Wolf> list = service.queryAll();
-        PageBean<Wolf> pageBean = new PageBean<>(currentPage, pageSize, list.size());
-        pageBean.setItems(list);
-        return pageBean;
+        PageInfo<Wolf> wolfPageInfo = new PageInfo<>(list);
+        return wolfPageInfo;
     }
 
     @ResponseBody
