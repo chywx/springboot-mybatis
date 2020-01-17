@@ -15,10 +15,10 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
         configurer.setUseSuffixPatternMatch(true);
     }
 
-    @Bean
-    public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet) {
-        ServletRegistrationBean<DispatcherServlet> servletServletRegistrationBean = new ServletRegistrationBean<>(dispatcherServlet);
-        servletServletRegistrationBean.addUrlMappings("*.do");
-        return servletServletRegistrationBean;
-    }
+//    @Bean
+//    public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet) {
+//        ServletRegistrationBean<DispatcherServlet> servletServletRegistrationBean = new ServletRegistrationBean<>(dispatcherServlet);
+//        servletServletRegistrationBean.addUrlMappings("*.do");
+//        return servletServletRegistrationBean;
+//    }
 }

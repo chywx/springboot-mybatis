@@ -2,12 +2,12 @@ package com.ocean.pdf;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,9 +16,9 @@ import java.util.Map;
 @Controller
 public class UpAndDownController {
 
-    @RequestMapping("upload.do")
+    @RequestMapping(value = "upload.do")
     @ResponseBody
-    public Map<String, Object> upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+    public Map<String, Object> upload(@RequestParam(value = "file") MultipartFile file) {
         Map<String, Object> map = new HashMap<>();
         map.put("code", "200");
         try {
