@@ -17,6 +17,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -53,8 +54,8 @@ public class TestHttpRequest {
         HttpUriRequest httpGet = new HttpGet(url);
         CloseableHttpResponse response = client.execute(httpGet);
         HttpEntity entity = response.getEntity();
-        if(entity!=null){
-            String  entityStr= EntityUtils.toString(entity,"utf-8");
+        if (entity != null) {
+            String entityStr = EntityUtils.toString(entity, "utf-8");
             System.out.println(entityStr);
         }
         System.out.println(response.toString());
@@ -81,8 +82,8 @@ public class TestHttpRequest {
         httpPost.setEntity(entityParam);
         CloseableHttpResponse response = client.execute(httpPost);
         HttpEntity entity = response.getEntity();
-        if(entity!=null){
-            String  entityStr= EntityUtils.toString(entity,"utf-8");
+        if (entity != null) {
+            String entityStr = EntityUtils.toString(entity, "utf-8");
             System.out.println(entityStr);
         }
         System.out.println(response.toString());
@@ -90,7 +91,7 @@ public class TestHttpRequest {
 
 
     @Test
-    public void sendRequestByRestTemplateGet() throws RestClientException, URISyntaxException{
+    public void sendRequestByRestTemplateGet() throws RestClientException, URISyntaxException {
         String url = "http://www.xinghengedu.com/autotele/simpleLogin.htm?username=13121939122&password=123456";
         RestTemplate rest = new RestTemplate();
         rest.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
@@ -100,29 +101,34 @@ public class TestHttpRequest {
     }
 
     @Test
-    public void sendRequestByRestTemplatePost() throws RestClientException, URISyntaxException{
+    public void sendRequestByRestTemplatePost() throws RestClientException, URISyntaxException {
         String url = "http://www.xinghengedu.com/autotele/simpleLogin.htm";
         RestTemplate rest = new RestTemplate();
         rest.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
         // post请求
-        MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
+        MultiValueMap<String, Object> body = new LinkedMultiValueMap<String, Object>();
 
-        map.add("username","13121939122");
-        map.add("password","123456");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/x-www-form-urlencoded");
 
-        String postForObject = rest.postForObject(new URI(url), map, String.class);
+        org.springframework.http.HttpEntity<MultiValueMap> requestEntity = new org.springframework.http.HttpEntity<MultiValueMap>(body, headers);
+
+        body.add("username", "13121939122");
+        body.add("password", "123456");
+
+        String postForObject = rest.postForObject(new URI(url), requestEntity, String.class);
         System.out.println(postForObject);
     }
 
 
     @Test
-    public void sendRequestByOkHttpGet() throws RestClientException, URISyntaxException, InterruptedException{
+    public void sendRequestByOkHttpGet() throws RestClientException, URISyntaxException, InterruptedException {
         OkHttpClient okHttpClient = new OkHttpClient();
         String url = "http://www.xinghengedu.com/autotele/simpleLogin.htm?username=13121939122&password=123456";
         final Request request = new Request.Builder()
-                .url(url)
-                .get()//默认就是GET请求，可以不写
-                .build();
+            .url(url)
+            .get()//默认就是GET请求，可以不写
+            .build();
         Call call = okHttpClient.newCall(request);
         System.out.println(call);
         call.enqueue(new Callback() {
@@ -131,6 +137,7 @@ public class TestHttpRequest {
                 System.out.println(call);
                 e.printStackTrace();
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 System.out.println(response.body().string());
@@ -145,15 +152,16 @@ public class TestHttpRequest {
         String url = "http://www.xinghengedu.com/autotele/simpleLogin.htm";
 
         RequestBody body = new FormBody.Builder()
-                .add("username","13121939122")
-                .add("password","123456").build();
+            .add("username", "13121939122")
+            .add("password", "123456").build();
 
         Request request = new Request.Builder().url(url).post(body).build();
         Call call = okHttpClient.newCall(request);
 
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) { }
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+            }
 
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
@@ -163,7 +171,6 @@ public class TestHttpRequest {
 //        System.out.println(call.execute().cacheResponse().body());
         TimeUnit.SECONDS.sleep(1);
     }
-
 
 
 }
