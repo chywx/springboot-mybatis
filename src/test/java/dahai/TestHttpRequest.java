@@ -44,8 +44,6 @@ public class TestHttpRequest {
 
     @Test
     public void sendRequestByHttpclientGet() throws RestClientException, URISyntaxException, InterruptedException, IOException {
-//        String url = "http://www.xinghengedu.com/autotele/simpleLogin.htm?username=13121939122&password=123456";
-//        String url = "http://api.sms.bambika.co.ke:8555/?target=PREMIERLOTO&msisdn=254713580938&text=This+is+a+test+message&login=bangbet&pass=226f73763c05d16c38169b1d0c31c6e4";
         String url = "http://api.sms.bambika.co.ke:8555/?target=BANGCASINO&msisdn=254713580938&text=This+is+a+test+message&login=bangbet&pass=ea62ee1413b5ae1e79f9a844e711bba9";
         //创建CloseableHttpClient
         HttpClientBuilder builder = HttpClientBuilder.create();
