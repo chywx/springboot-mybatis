@@ -87,6 +87,37 @@ public class TestHttpRequest {
         System.out.println(response.toString());
     }
 
+    @Test
+    public void sendRequestByHttpclientPostTest() throws RestClientException, URISyntaxException, InterruptedException, IOException {
+        String url = "http://39.97.251.51:9009/api/bet/match/result";
+        /*
+        sportId: sr:sport:1
+        date: 1588582146275
+         */
+        //创建CloseableHttpClient
+        HttpClientBuilder builder = HttpClientBuilder.create();
+        CloseableHttpClient client = builder.build();
+        //执行
+        HttpPost httpPost = new HttpPost(url);
+
+        List<NameValuePair> list = new LinkedList<>();
+        BasicNameValuePair param1 = new BasicNameValuePair("sportId", "sr:sport:1");
+        BasicNameValuePair param2 = new BasicNameValuePair("date", "1588582146275");
+        list.add(param1);
+        list.add(param2);
+
+        UrlEncodedFormEntity entityParam = new UrlEncodedFormEntity(list, "UTF-8");
+
+        httpPost.setEntity(entityParam);
+        CloseableHttpResponse response = client.execute(httpPost);
+        HttpEntity entity = response.getEntity();
+        if (entity != null) {
+            String entityStr = EntityUtils.toString(entity, "utf-8");
+            System.out.println(entityStr);
+        }
+        System.out.println(response.toString());
+    }
+
 
     @Test
     public void sendRequestByRestTemplateGet() throws RestClientException, URISyntaxException {
