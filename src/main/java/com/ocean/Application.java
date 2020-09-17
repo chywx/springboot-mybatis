@@ -1,5 +1,6 @@
 package com.ocean;
 
+import cn.chendahai.dingding.service.DingdingService;
 import com.github.pagehelper.PageInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,6 +27,11 @@ public class Application {
 //        properties.setProperty("dialect", "mysql");    //配置mysql数据库的方言
 //        pageInterceptor.setProperties(properties);
         return pageInterceptor;
+    }
+
+    @Bean
+    public DingdingService dingdingService() {
+        return new DingdingService();
     }
 
 }

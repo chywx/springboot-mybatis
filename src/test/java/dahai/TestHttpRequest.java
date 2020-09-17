@@ -1,8 +1,19 @@
 package dahai;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import okhttp3.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.charset.Charset;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -10,7 +21,6 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
@@ -23,16 +33,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import sun.security.jca.JCAUtil;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 功能描述
@@ -72,6 +72,37 @@ public class TestHttpRequest {
         List<NameValuePair> list = new LinkedList<>();
         BasicNameValuePair param1 = new BasicNameValuePair("username", "13121939122");
         BasicNameValuePair param2 = new BasicNameValuePair("password", "123456");
+        list.add(param1);
+        list.add(param2);
+
+        UrlEncodedFormEntity entityParam = new UrlEncodedFormEntity(list, "UTF-8");
+
+        httpPost.setEntity(entityParam);
+        CloseableHttpResponse response = client.execute(httpPost);
+        HttpEntity entity = response.getEntity();
+        if (entity != null) {
+            String entityStr = EntityUtils.toString(entity, "utf-8");
+            System.out.println(entityStr);
+        }
+        System.out.println(response.toString());
+    }
+
+    @Test
+    public void sendRequestByHttpclientPostTest() throws RestClientException, URISyntaxException, InterruptedException, IOException {
+        String url = "http://39.97.251.51:9009/api/bet/match/result";
+        /*
+        sportId: sr:sport:1
+        date: 1588582146275
+         */
+        //创建CloseableHttpClient
+        HttpClientBuilder builder = HttpClientBuilder.create();
+        CloseableHttpClient client = builder.build();
+        //执行
+        HttpPost httpPost = new HttpPost(url);
+
+        List<NameValuePair> list = new LinkedList<>();
+        BasicNameValuePair param1 = new BasicNameValuePair("sportId", "sr:sport:1");
+        BasicNameValuePair param2 = new BasicNameValuePair("date", "1588582146275");
         list.add(param1);
         list.add(param2);
 
