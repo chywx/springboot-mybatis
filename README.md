@@ -2,7 +2,7 @@
 
 [github API](https://api.github.com/repos/chywx/springboot-mybatis/releases/latest)
 
-> springboot 整合数据库demo，以便复用，使用了lombok，需要安装对应的插件
+> springboot 整合数据库demo，以便复用，使用了lombok，需要安装对应的插件，不过最新版的idea是默认支持lombok的
 
 
 
