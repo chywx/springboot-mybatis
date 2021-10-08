@@ -1,6 +1,7 @@
 package com.ocean.service;
 
 import java.util.Date;
+import javax.annotation.PostConstruct;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 @EnableScheduling
 public class CronService {
+
+    @PostConstruct
+    public void init() {
+        oneMinute();
+    }
 
     @Scheduled(cron = "0 */1 * * * ?")
     public void oneMinute() {
