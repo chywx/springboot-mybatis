@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 @EnableScheduling
 public class CronService {
 
+    // 启动加载
     @PostConstruct
     public void init() {
         oneMinute();
